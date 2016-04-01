@@ -1,7 +1,7 @@
 # find-shortest-substring
 An interview problem designed to assess coding skills and understanding of complexity
 
-Rephrased version of the [Minimal Window Substring](https://leetcode.com/problems/minimum-window-substring) puzzle
+Rephrased version of the [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring) puzzle
 
 ## The problem
 
