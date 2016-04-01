@@ -44,7 +44,7 @@ function findShortestSubstring(text, letters) {
 				currentCount++;
 			}
 		}
-		if (currentCount == neededCount) {
+		if (currentCount === neededCount) {
 			let startLetter = text[start];
 			while (!neededLetters.has(startLetter) || currentLetters.get(startLetter) > neededLetters.get(startLetter)) {
 				if (neededLetters.has(startLetter)) {
