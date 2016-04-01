@@ -2,7 +2,7 @@
 
 // Given two strings, find the shortest substring of the first string that contains all letters of the second one. Count matters.
 
-findShortestSubstring("THELONGTEXT", "ETT") // prints TEXT
+findShortestSubstring("THELONGTEXT", "ETT"); // prints TEXT
 
 // other mathching (but not shortest) substrings: "THELONGT", "ELONGTEXT"
 // "THELONGTEXT" motivates to look for an effecient solution
