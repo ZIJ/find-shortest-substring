@@ -10,7 +10,7 @@ findShortestSubstring("THELONGTEXT", "ETT"); // prints TEXT
 // "ETT" and "TEXT" hint that order of letters does not matter
 
 function findShortestSubstring(text, letters) {
-	let neededCount = 0;
+	let neededCount = letters.length;
 	let currentCount = 0;
 
 	let neededLetters = new Map();
@@ -22,7 +22,6 @@ function findShortestSubstring(text, letters) {
 		} else {
 			neededLetters.set(letter, 1);
 		}
-		neededCount++;
 	}
 
 	for (let keyValuePair of neededLetters) {
