@@ -36,22 +36,30 @@ function findShortestSubstring(text, letters) {
 	let start = 0;
 	let end = 0;
 
-	for (let endLetter of text) {
-		if (currentLetters.has(endLetter)) {
-			currentLetters.set(endLetter, currentLetters.get(endLetter) + 1);
-			if (currentLetters.get(endLetter) <= neededLetters.get(endLetter)) {
+	function includeLetter(letter) {
+		if (neededLetters.has(letter)) {
+			currentLetters.set(letter, currentLetters.get(letter) + 1);
+			if (currentLetters.get(letter) <= neededLetters.get(letter)) {
 				currentCount++;
-			}
+			}	
+		}	
+	}
+
+	function excludeLetter(letter) {
+		if (neededLetters.has(letter)) {
+			currentLetters.set(letter, currentLetters.get(letter) - 1);
+			if (currentLetters.get(letter) < neededLetters.get(letter)) {
+				currentCount--;
+			}	
 		}
+	}
+
+	for (let endLetter of text) {
+		includeLetter(endLetter);
 		if (currentCount === neededCount) {
 			let startLetter = text[start];
 			while (!neededLetters.has(startLetter) || currentLetters.get(startLetter) > neededLetters.get(startLetter)) {
-				if (neededLetters.has(startLetter)) {
-					currentLetters.set(startLetter, currentLetters.get(startLetter) - 1);
-					if (currentLetters.get(startLetter) < neededLetters.get(startLetter)) {
-						currentCount--;
-					}
-				}
+				excludeLetter(startLetter);
 				start++;
 				startLetter = text[start];
 			}
